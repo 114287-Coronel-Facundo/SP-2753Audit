@@ -1,4 +1,5 @@
 ﻿using EvoltisTL.AuditDomain.Enums;
+using EvoltisTL.AuditDomain.Model;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace EvoltisTL.AuditDomain
+namespace EvoltisTL.AuditDomain.AuditEntryModel
 {
 
     public class AuditEntry
