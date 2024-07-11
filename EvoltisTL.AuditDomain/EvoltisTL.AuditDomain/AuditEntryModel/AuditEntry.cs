@@ -1,12 +1,7 @@
-﻿using EvoltisTL.AuditDomain.Enums;
-using EvoltisTL.AuditDomain.Model;
+﻿using EvoltisTL.AuditDomain.Domain.Entities;
+using EvoltisTL.AuditDomain.Domain.Enums;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
 
 namespace EvoltisTL.AuditDomain.AuditEntryModel
 {

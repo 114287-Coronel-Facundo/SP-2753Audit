@@ -1,4 +1,4 @@
-﻿namespace EvoltisTL.AuditDomain.Model
+﻿namespace EvoltisTL.AuditDomain.Domain.Entities
 {
     public class Audit
     {

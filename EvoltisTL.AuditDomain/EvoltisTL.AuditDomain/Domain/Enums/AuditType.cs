@@ -1,4 +1,4 @@
-﻿namespace EvoltisTL.AuditDomain.Enums
+﻿namespace EvoltisTL.AuditDomain.Domain.Enums
 {
     public enum AuditType
     {

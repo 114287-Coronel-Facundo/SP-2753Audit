@@ -1,4 +1,4 @@
-﻿namespace EvoltisTL.AuditDomain.Exceptions
+﻿namespace EvoltisTL.AuditDomain.Domain.Exceptions
 {
     public class AuditableEntitySavingException : Exception
     {
