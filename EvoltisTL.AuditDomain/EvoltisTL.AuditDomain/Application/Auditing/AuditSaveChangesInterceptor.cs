@@ -33,14 +33,14 @@ namespace EvoltisTL.AuditDomain.Application.Auditing
 
         public override int SavedChanges(SaveChangesCompletedEventData eventData, int result)
         {
-            CompleteAuditEntries(eventData);
+            CompleteAuditEntries();
             _auditLogRepository.SaveChanges(_temporaryAuditEntries);
             return base.SavedChanges(eventData, result);
         }
 
         public override async ValueTask<int> SavedChangesAsync(SaveChangesCompletedEventData eventData, int result, CancellationToken cancellationToken = default)
         {
-            CompleteAuditEntries(eventData);
+            CompleteAuditEntries();
             await _auditLogRepository.SaveChangesAsync(_temporaryAuditEntries);
             return await base.SavedChangesAsync(eventData, result, cancellationToken);
         }
@@ -101,7 +101,7 @@ namespace EvoltisTL.AuditDomain.Application.Auditing
             return auditEntries;
         }
 
-        private void CompleteAuditEntries(SaveChangesCompletedEventData eventData)
+        private void CompleteAuditEntries()
         {
             foreach (var entry in _temporaryAuditEntries)
             {
