@@ -3,7 +3,7 @@ using EvoltisTL.AuditDomain.Domain.Enums;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System.Text.Json;
 
-namespace EvoltisTL.AuditDomain.AuditEntryModel
+namespace EvoltisTL.AuditDomain.Domain.AuditEntryModel
 {
 
     public class AuditEntry
