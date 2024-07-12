@@ -3,6 +3,7 @@ using EvoltisTL.AuditDomain.Domain.AuditEntryModel;
 using EvoltisTL.AuditDomain.Domain.Entities;
 using EvoltisTL.AuditDomain.Domain.Enums;
 using EvoltisTL.AuditDomain.Infraestructure.Persistence;
+using EvoltisTL.AuditDomain.Infraestructure.Repositories;
 using EvoltisTL.AuditDomain.Infraestructure.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
@@ -12,18 +13,18 @@ namespace EvoltisTL.AuditDomain.Application.Auditing
     public class AuditSaveChangesInterceptor : SaveChangesInterceptor
     {
         private readonly IServiceProvider _serviceProvider;
+        private readonly IAuditLogRepository _auditLogRepository;
 
-        public AuditSaveChangesInterceptor(IServiceProvider serviceProvider)
+        public AuditSaveChangesInterceptor(IAuditLogRepository auditLogRepository)
         {
-            _serviceProvider = serviceProvider;
+            _auditLogRepository = auditLogRepository;
         }   
 
         public override InterceptionResult<int> SavingChanges(DbContextEventData eventData, InterceptionResult<int> result)
         {
             var auditEntries = GetAuditEntries(eventData);
-            var logRepository = GetInstanceRepository.GetInstance(_serviceProvider);
 
-            logRepository.SaveChanges(auditEntries);
+            _auditLogRepository.SaveChanges(auditEntries);
 
             return base.SavingChanges(eventData, result);
         }
@@ -31,9 +32,8 @@ namespace EvoltisTL.AuditDomain.Application.Auditing
         public override async ValueTask<InterceptionResult<int>> SavingChangesAsync(DbContextEventData eventData, InterceptionResult<int> result, CancellationToken cancellationToken = default)
         {
             var auditEntries = GetAuditEntries(eventData);
-            var logRepository = GetInstanceRepository.GetInstance(_serviceProvider);
 
-            logRepository.SaveChanges(auditEntries);
+            _auditLogRepository.SaveChanges(auditEntries);
 
             return await base.SavingChangesAsync(eventData, result, cancellationToken);
         }
@@ -44,7 +44,7 @@ namespace EvoltisTL.AuditDomain.Application.Auditing
             var auditEntries = new List<AuditEntry>();
 
             var auditEntities = dbContext.ChangeTracker.Entries()
-                .Where(e => e.State == EntityState.Added || e.State == EntityState.Modified)
+                .Where(e => e.State == EntityState.Added || e.State == EntityState.Modified || e.State == EntityState.Deleted)
                 .ToList();
 
             foreach (var entry in auditEntities)
