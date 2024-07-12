@@ -11,61 +11,46 @@ namespace EvoltisTL.AuditDomain.Application.Auditing
     public class AuditSaveChangesInterceptor : SaveChangesInterceptor
     {
         private readonly IAuditLogRepository _auditLogRepository;
+        private List<AuditEntry> _temporaryAuditEntries;
 
         public AuditSaveChangesInterceptor(IAuditLogRepository auditLogRepository)
         {
             _auditLogRepository = auditLogRepository;
+            _temporaryAuditEntries = new List<AuditEntry>();
         }
 
         public override InterceptionResult<int> SavingChanges(DbContextEventData eventData, InterceptionResult<int> result)
         {
-            var auditEntries = GetAuditEntries(eventData);
-
-            _auditLogRepository.SaveChanges(auditEntries);
-
+            _temporaryAuditEntries = GetAuditEntries(eventData);
             return base.SavingChanges(eventData, result);
+        }
+
+        public override async ValueTask<InterceptionResult<int>> SavingChangesAsync(DbContextEventData eventData, InterceptionResult<int> result, CancellationToken cancellationToken = default)
+        {
+            _temporaryAuditEntries = GetAuditEntries(eventData);
+            return await base.SavingChangesAsync(eventData, result, cancellationToken);
         }
 
         public override int SavedChanges(SaveChangesCompletedEventData eventData, int result)
         {
-            var auditEntries = GetAuditEntries(eventData);
-
-            _auditLogRepository.SaveChanges(auditEntries);
-
+            CompleteAuditEntries(eventData);
+            _auditLogRepository.SaveChanges(_temporaryAuditEntries);
             return base.SavedChanges(eventData, result);
         }
 
         public override async ValueTask<int> SavedChangesAsync(SaveChangesCompletedEventData eventData, int result, CancellationToken cancellationToken = default)
         {
-            var auditEntries = GetAuditEntries(eventData);
-
-            _auditLogRepository.SaveChanges(auditEntries);
-
+            CompleteAuditEntries(eventData);
+            await _auditLogRepository.SaveChangesAsync(_temporaryAuditEntries);
             return await base.SavedChangesAsync(eventData, result, cancellationToken);
-        }
-
-        public override async ValueTask<InterceptionResult<int>> SavingChangesAsync(DbContextEventData eventData, InterceptionResult<int> result, CancellationToken cancellationToken = default)
-        {
-            var auditEntries = GetAuditEntries(eventData);
-
-            _auditLogRepository.SaveChanges(auditEntries);
-
-            return await base.SavingChangesAsync(eventData, result, cancellationToken);
         }
 
         private List<AuditEntry> GetAuditEntries(DbContextEventData eventData)
         {
             var dbContext = eventData.Context;
-            var prop = dbContext.GetType();
             var auditEntries = new List<AuditEntry>();
 
-            var auditEntities = dbContext.ChangeTracker.Entries()
-                .Where(e => e.State == EntityState.Added || e.State == EntityState.Modified || e.State == EntityState.Deleted)
-                .ToList();
-            var auditEntities2 = dbContext.ChangeTracker.Entries()
-                .ToList();
-
-            foreach (var entry in auditEntities)
+            foreach (var entry in dbContext.ChangeTracker.Entries())
             {
                 if (entry.Entity is Audit || entry.State == EntityState.Detached || entry.State == EntityState.Unchanged)
                     continue;
@@ -116,5 +101,19 @@ namespace EvoltisTL.AuditDomain.Application.Auditing
             return auditEntries;
         }
 
+        private void CompleteAuditEntries(SaveChangesCompletedEventData eventData)
+        {
+            foreach (var entry in _temporaryAuditEntries)
+            {
+                foreach (var property in entry.Entry.Properties)
+                {
+                    if (property.Metadata.IsPrimaryKey() && entry.AuditType == AuditType.Create)
+                    {
+                        entry.KeyValues[property.Metadata.Name] = property.CurrentValue;
+                    }
+                }
+            }
+        }
     }
+
 }

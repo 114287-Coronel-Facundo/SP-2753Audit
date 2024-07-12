@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EvoltisTL.AuditDomain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+01c2c7cdfa1028092147a8fd9d634b7e7c4f1668")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+704668cbc3909da469e17b6fb35f4e4c88e5b09f")]
 [assembly: System.Reflection.AssemblyProductAttribute("EvoltisTL.AuditDomain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EvoltisTL.AuditDomain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
