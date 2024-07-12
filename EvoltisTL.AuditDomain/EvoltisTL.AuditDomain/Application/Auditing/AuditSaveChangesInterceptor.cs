@@ -1,9 +1,7 @@
-﻿using EvoltisTL.AuditDomain.Application.Service;
+﻿using Dummy.Core.Model.Classes;
 using EvoltisTL.AuditDomain.Domain.AuditEntryModel;
 using EvoltisTL.AuditDomain.Domain.Entities;
 using EvoltisTL.AuditDomain.Domain.Enums;
-using EvoltisTL.AuditDomain.Infraestructure.Persistence;
-using EvoltisTL.AuditDomain.Infraestructure.Repositories;
 using EvoltisTL.AuditDomain.Infraestructure.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
@@ -12,13 +10,12 @@ namespace EvoltisTL.AuditDomain.Application.Auditing
 {
     public class AuditSaveChangesInterceptor : SaveChangesInterceptor
     {
-        private readonly IServiceProvider _serviceProvider;
         private readonly IAuditLogRepository _auditLogRepository;
 
         public AuditSaveChangesInterceptor(IAuditLogRepository auditLogRepository)
         {
             _auditLogRepository = auditLogRepository;
-        }   
+        }
 
         public override InterceptionResult<int> SavingChanges(DbContextEventData eventData, InterceptionResult<int> result)
         {
@@ -27,6 +24,24 @@ namespace EvoltisTL.AuditDomain.Application.Auditing
             _auditLogRepository.SaveChanges(auditEntries);
 
             return base.SavingChanges(eventData, result);
+        }
+
+        public override int SavedChanges(SaveChangesCompletedEventData eventData, int result)
+        {
+            var auditEntries = GetAuditEntries(eventData);
+
+            _auditLogRepository.SaveChanges(auditEntries);
+
+            return base.SavedChanges(eventData, result);
+        }
+
+        public override async ValueTask<int> SavedChangesAsync(SaveChangesCompletedEventData eventData, int result, CancellationToken cancellationToken = default)
+        {
+            var auditEntries = GetAuditEntries(eventData);
+
+            _auditLogRepository.SaveChanges(auditEntries);
+
+            return await base.SavedChangesAsync(eventData, result, cancellationToken);
         }
 
         public override async ValueTask<InterceptionResult<int>> SavingChangesAsync(DbContextEventData eventData, InterceptionResult<int> result, CancellationToken cancellationToken = default)
@@ -41,10 +56,13 @@ namespace EvoltisTL.AuditDomain.Application.Auditing
         private List<AuditEntry> GetAuditEntries(DbContextEventData eventData)
         {
             var dbContext = eventData.Context;
+            var prop = dbContext.GetType();
             var auditEntries = new List<AuditEntry>();
 
             var auditEntities = dbContext.ChangeTracker.Entries()
                 .Where(e => e.State == EntityState.Added || e.State == EntityState.Modified || e.State == EntityState.Deleted)
+                .ToList();
+            var auditEntities2 = dbContext.ChangeTracker.Entries()
                 .ToList();
 
             foreach (var entry in auditEntities)
