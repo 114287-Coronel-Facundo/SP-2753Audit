@@ -1,5 +1,6 @@
 ﻿using EvoltisTL.AuditDomain.Domain.Entities;
 using EvoltisTL.AuditDomain.Domain.Enums;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System.Text.Json;
 
@@ -8,9 +9,18 @@ namespace EvoltisTL.AuditDomain.Domain.AuditEntryModel
 
     public class AuditEntry
     {
-        public AuditEntry(EntityEntry entry)
+        public AuditEntry(EntityEntry entry, int auditUserId)
         {
             Entry = entry;
+            TableName = entry.Metadata.GetTableName();
+            UserId = auditUserId;
+            AuditType = entry.State switch
+            {
+                EntityState.Added => AuditType.Create,
+                EntityState.Deleted => AuditType.Delete,
+                EntityState.Modified => AuditType.Update,
+            };
+            AddProperties(entry);
         }
         public EntityEntry Entry { get; } = null!;
         public int UserId { get; set; }
@@ -32,6 +42,36 @@ namespace EvoltisTL.AuditDomain.Domain.AuditEntryModel
             audit.NewValues = NewValues.Count == 0 ? null : JsonSerializer.Serialize(NewValues);
             audit.AffectedColumns = ChangedColumns.Count == 0 ? null : JsonSerializer.Serialize(ChangedColumns);
             return audit;
+        }
+        private void AddProperties(EntityEntry entry)
+        {
+            foreach (var property in entry.Properties)
+            {
+                string propertyName = property.Metadata.Name;
+                if (property.Metadata.IsPrimaryKey())
+                {
+                    KeyValues[propertyName] = property.CurrentValue;
+                    continue;
+                }
+
+                switch (entry.State)
+                {
+                    case EntityState.Added:
+                        NewValues[propertyName] = property.CurrentValue;
+                        break;
+                    case EntityState.Deleted:
+                        OldValues[propertyName] = property.OriginalValue;
+                        break;
+                    case EntityState.Modified:
+                        if (!Equals(property.OriginalValue, property.CurrentValue))
+                        {
+                            ChangedColumns.Add(propertyName);
+                            OldValues[propertyName] = property.OriginalValue;
+                            NewValues[propertyName] = property.CurrentValue;
+                        }
+                        break;
+                }
+            }
         }
     }
 }

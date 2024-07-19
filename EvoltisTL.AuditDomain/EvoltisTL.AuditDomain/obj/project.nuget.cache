@@ -1,15 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "lkY0Vwbr6k7/vEJa4JzqkOBytB2uB8dYqEJRradbxtWPa/H2wgQeSvJ7SR5BFdJHMh3uU2OF1BCXl5aTf5tKww==",
+  "dgSpecHash": "CHpdIerP0alImG25yDg1Bzeh9GgYkgSopkVL4fMwPGaDbA0YEb/S2waUPc9W6r7Ja66A2BpX8gr+XUhATC65ig==",
   "success": true,
   "projectFilePath": "C:\\Proyectos\\Maipu\\Timm30\\Spike2753\\SP-2753Audit\\EvoltisTL.AuditDomain\\EvoltisTL.AuditDomain\\EvoltisTL.AuditDomain.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\facundo.coronel\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
-    "C:\\Users\\facundo.coronel\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\facundo.coronel\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.28\\microsoft.entityframeworkcore.6.0.28.nupkg.sha512",
     "C:\\Users\\facundo.coronel\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.28\\microsoft.entityframeworkcore.abstractions.6.0.28.nupkg.sha512",
     "C:\\Users\\facundo.coronel\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\6.0.28\\microsoft.entityframeworkcore.analyzers.6.0.28.nupkg.sha512",
-    "C:\\Users\\facundo.coronel\\.nuget\\packages\\microsoft.entityframeworkcore.dynamiclinq\\6.2.19\\microsoft.entityframeworkcore.dynamiclinq.6.2.19.nupkg.sha512",
     "C:\\Users\\facundo.coronel\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\6.0.28\\microsoft.entityframeworkcore.relational.6.0.28.nupkg.sha512",
     "C:\\Users\\facundo.coronel\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\6.0.0\\microsoft.extensions.caching.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\facundo.coronel\\.nuget\\packages\\microsoft.extensions.caching.memory\\6.0.1\\microsoft.extensions.caching.memory.6.0.1.nupkg.sha512",
@@ -24,7 +21,6 @@
     "C:\\Users\\facundo.coronel\\.nuget\\packages\\pomelo.entityframeworkcore.mysql\\6.0.3\\pomelo.entityframeworkcore.mysql.6.0.3.nupkg.sha512",
     "C:\\Users\\facundo.coronel\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",
     "C:\\Users\\facundo.coronel\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.1\\system.diagnostics.diagnosticsource.6.0.1.nupkg.sha512",
-    "C:\\Users\\facundo.coronel\\.nuget\\packages\\system.linq.dynamic.core\\1.2.19\\system.linq.dynamic.core.1.2.19.nupkg.sha512",
     "C:\\Users\\facundo.coronel\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
   ],
   "logs": []

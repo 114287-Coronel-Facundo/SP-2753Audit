@@ -1,15 +1,12 @@
 C:\Proyectos\Maipu\Timm30\Spike2753\SP-2753Audit\EvoltisTL.AuditDomain\EvoltisTL.AuditDomain\bin\Debug\net6.0\EvoltisTL.AuditDomain.deps.json
 C:\Proyectos\Maipu\Timm30\Spike2753\SP-2753Audit\EvoltisTL.AuditDomain\EvoltisTL.AuditDomain\bin\Debug\net6.0\EvoltisTL.AuditDomain.dll
 C:\Proyectos\Maipu\Timm30\Spike2753\SP-2753Audit\EvoltisTL.AuditDomain\EvoltisTL.AuditDomain\bin\Debug\net6.0\EvoltisTL.AuditDomain.pdb
-C:\Proyectos\Maipu\Timm30\Spike2753\SP-2753Audit\EvoltisTL.AuditDomain\EvoltisTL.AuditDomain\bin\Debug\net6.0\Dummy.Core.dll
-C:\Proyectos\Maipu\Timm30\Spike2753\SP-2753Audit\EvoltisTL.AuditDomain\EvoltisTL.AuditDomain\bin\Debug\net6.0\Dummy.Core.pdb
 C:\Proyectos\Maipu\Timm30\Spike2753\SP-2753Audit\EvoltisTL.AuditDomain\EvoltisTL.AuditDomain\obj\Debug\net6.0\EvoltisTL.AuditDomain.csproj.AssemblyReference.cache
 C:\Proyectos\Maipu\Timm30\Spike2753\SP-2753Audit\EvoltisTL.AuditDomain\EvoltisTL.AuditDomain\obj\Debug\net6.0\EvoltisTL.AuditDomain.GeneratedMSBuildEditorConfig.editorconfig
 C:\Proyectos\Maipu\Timm30\Spike2753\SP-2753Audit\EvoltisTL.AuditDomain\EvoltisTL.AuditDomain\obj\Debug\net6.0\EvoltisTL.AuditDomain.AssemblyInfoInputs.cache
 C:\Proyectos\Maipu\Timm30\Spike2753\SP-2753Audit\EvoltisTL.AuditDomain\EvoltisTL.AuditDomain\obj\Debug\net6.0\EvoltisTL.AuditDomain.AssemblyInfo.cs
 C:\Proyectos\Maipu\Timm30\Spike2753\SP-2753Audit\EvoltisTL.AuditDomain\EvoltisTL.AuditDomain\obj\Debug\net6.0\EvoltisTL.AuditDomain.csproj.CoreCompileInputs.cache
 C:\Proyectos\Maipu\Timm30\Spike2753\SP-2753Audit\EvoltisTL.AuditDomain\EvoltisTL.AuditDomain\obj\Debug\net6.0\EvoltisTL.AuditDomain.sourcelink.json
-C:\Proyectos\Maipu\Timm30\Spike2753\SP-2753Audit\EvoltisTL.AuditDomain\EvoltisTL.AuditDomain\obj\Debug\net6.0\EvoltisTL.AuditDomain.csproj.CopyComplete
 C:\Proyectos\Maipu\Timm30\Spike2753\SP-2753Audit\EvoltisTL.AuditDomain\EvoltisTL.AuditDomain\obj\Debug\net6.0\EvoltisTL.AuditDomain.dll
 C:\Proyectos\Maipu\Timm30\Spike2753\SP-2753Audit\EvoltisTL.AuditDomain\EvoltisTL.AuditDomain\obj\Debug\net6.0\refint\EvoltisTL.AuditDomain.dll
 C:\Proyectos\Maipu\Timm30\Spike2753\SP-2753Audit\EvoltisTL.AuditDomain\EvoltisTL.AuditDomain\obj\Debug\net6.0\EvoltisTL.AuditDomain.pdb

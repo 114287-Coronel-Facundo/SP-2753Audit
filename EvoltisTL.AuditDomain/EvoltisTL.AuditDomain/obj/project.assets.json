@@ -2,31 +2,6 @@
   "version": 3,
   "targets": {
     "net6.0": {
-      "AutoMapper/11.0.1": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.CSharp": "4.7.0"
-        },
-        "compile": {
-          "lib/netstandard2.1/AutoMapper.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.1/AutoMapper.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "Microsoft.CSharp/4.7.0": {
-        "type": "package",
-        "compile": {
-          "ref/netcoreapp2.0/_._": {}
-        },
-        "runtime": {
-          "lib/netcoreapp2.0/_._": {}
-        }
-      },
       "Microsoft.EntityFrameworkCore/6.0.28": {
         "type": "package",
         "dependencies": {
@@ -72,23 +47,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/_._": {}
-        }
-      },
-      "Microsoft.EntityFrameworkCore.DynamicLinq/6.2.19": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.EntityFrameworkCore": "6.0.0",
-          "System.Linq.Dynamic.Core": "1.2.19"
-        },
-        "compile": {
-          "lib/net6.0/Microsoft.EntityFrameworkCore.DynamicLinq.dll": {
-            "related": ".pdb;.xml"
-          }
-        },
-        "runtime": {
-          "lib/net6.0/Microsoft.EntityFrameworkCore.DynamicLinq.dll": {
-            "related": ".pdb;.xml"
-          }
         }
       },
       "Microsoft.EntityFrameworkCore.Relational/6.0.28": {
@@ -337,19 +295,6 @@
           "buildTransitive/netcoreapp3.1/_._": {}
         }
       },
-      "System.Linq.Dynamic.Core/1.2.19": {
-        "type": "package",
-        "compile": {
-          "lib/net6.0/System.Linq.Dynamic.Core.dll": {
-            "related": ".pdb;.xml"
-          }
-        },
-        "runtime": {
-          "lib/net6.0/System.Linq.Dynamic.Core.dll": {
-            "related": ".pdb;.xml"
-          }
-        }
-      },
       "System.Runtime.CompilerServices.Unsafe/6.0.0": {
         "type": "package",
         "compile": {
@@ -365,109 +310,10 @@
         "build": {
           "buildTransitive/netcoreapp3.1/_._": {}
         }
-      },
-      "Dummy.Core/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "AutoMapper": "11.0.1",
-          "Microsoft.EntityFrameworkCore.DynamicLinq": "6.2.19",
-          "Pomelo.EntityFrameworkCore.MySql": "6.0.3"
-        },
-        "compile": {
-          "bin/placeholder/Dummy.Core.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Dummy.Core.dll": {}
-        }
       }
     }
   },
   "libraries": {
-    "AutoMapper/11.0.1": {
-      "sha512": "WIadGC1pIwbnyTubvI577p3F++Bsj9q2Q3OaAc1I0QS+JhupN1xkdrPBhI9bPIeg63zM81tZplUNYkqU1HE5jQ==",
-      "type": "package",
-      "path": "automapper/11.0.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "README.md",
-        "automapper.11.0.1.nupkg.sha512",
-        "automapper.nuspec",
-        "icon.png",
-        "lib/netstandard2.1/AutoMapper.dll",
-        "lib/netstandard2.1/AutoMapper.xml"
-      ]
-    },
-    "Microsoft.CSharp/4.7.0": {
-      "sha512": "pTj+D3uJWyN3My70i2Hqo+OXixq3Os2D1nJ2x92FFo6sk8fYS1m1WLNTs0Dc1uPaViH0YvEEwvzddQ7y4rhXmA==",
-      "type": "package",
-      "path": "microsoft.csharp/4.7.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/MonoAndroid10/_._",
-        "lib/MonoTouch10/_._",
-        "lib/net45/_._",
-        "lib/netcore50/Microsoft.CSharp.dll",
-        "lib/netcoreapp2.0/_._",
-        "lib/netstandard1.3/Microsoft.CSharp.dll",
-        "lib/netstandard2.0/Microsoft.CSharp.dll",
-        "lib/netstandard2.0/Microsoft.CSharp.xml",
-        "lib/portable-net45+win8+wp8+wpa81/_._",
-        "lib/uap10.0.16299/_._",
-        "lib/win8/_._",
-        "lib/wp80/_._",
-        "lib/wpa81/_._",
-        "lib/xamarinios10/_._",
-        "lib/xamarinmac20/_._",
-        "lib/xamarintvos10/_._",
-        "lib/xamarinwatchos10/_._",
-        "microsoft.csharp.4.7.0.nupkg.sha512",
-        "microsoft.csharp.nuspec",
-        "ref/MonoAndroid10/_._",
-        "ref/MonoTouch10/_._",
-        "ref/net45/_._",
-        "ref/netcore50/Microsoft.CSharp.dll",
-        "ref/netcore50/Microsoft.CSharp.xml",
-        "ref/netcore50/de/Microsoft.CSharp.xml",
-        "ref/netcore50/es/Microsoft.CSharp.xml",
-        "ref/netcore50/fr/Microsoft.CSharp.xml",
-        "ref/netcore50/it/Microsoft.CSharp.xml",
-        "ref/netcore50/ja/Microsoft.CSharp.xml",
-        "ref/netcore50/ko/Microsoft.CSharp.xml",
-        "ref/netcore50/ru/Microsoft.CSharp.xml",
-        "ref/netcore50/zh-hans/Microsoft.CSharp.xml",
-        "ref/netcore50/zh-hant/Microsoft.CSharp.xml",
-        "ref/netcoreapp2.0/_._",
-        "ref/netstandard1.0/Microsoft.CSharp.dll",
-        "ref/netstandard1.0/Microsoft.CSharp.xml",
-        "ref/netstandard1.0/de/Microsoft.CSharp.xml",
-        "ref/netstandard1.0/es/Microsoft.CSharp.xml",
-        "ref/netstandard1.0/fr/Microsoft.CSharp.xml",
-        "ref/netstandard1.0/it/Microsoft.CSharp.xml",
-        "ref/netstandard1.0/ja/Microsoft.CSharp.xml",
-        "ref/netstandard1.0/ko/Microsoft.CSharp.xml",
-        "ref/netstandard1.0/ru/Microsoft.CSharp.xml",
-        "ref/netstandard1.0/zh-hans/Microsoft.CSharp.xml",
-        "ref/netstandard1.0/zh-hant/Microsoft.CSharp.xml",
-        "ref/netstandard2.0/Microsoft.CSharp.dll",
-        "ref/netstandard2.0/Microsoft.CSharp.xml",
-        "ref/portable-net45+win8+wp8+wpa81/_._",
-        "ref/uap10.0.16299/_._",
-        "ref/win8/_._",
-        "ref/wp80/_._",
-        "ref/wpa81/_._",
-        "ref/xamarinios10/_._",
-        "ref/xamarinmac20/_._",
-        "ref/xamarintvos10/_._",
-        "ref/xamarinwatchos10/_._",
-        "useSharedDesignerContext.txt",
-        "version.txt"
-      ]
-    },
     "Microsoft.EntityFrameworkCore/6.0.28": {
       "sha512": "B0/OgYIf4Jy+ZXxU1tQ29m235K63h6wadL9lnUPN7lFAeJRrwNXynFFAGDibgUjJvimZvbGxtF+AiJaODoRrig==",
       "type": "package",
@@ -509,20 +355,6 @@
         "lib/netstandard2.0/_._",
         "microsoft.entityframeworkcore.analyzers.6.0.28.nupkg.sha512",
         "microsoft.entityframeworkcore.analyzers.nuspec"
-      ]
-    },
-    "Microsoft.EntityFrameworkCore.DynamicLinq/6.2.19": {
-      "sha512": "yyA5BOdyQCFg7gs1CqczFUnFy3OHXslrhdRA/SHz1PGdxebDx1ejBEME8bIU+0XCnuE69mG0GNfeuoQWYYDQDA==",
-      "type": "package",
-      "path": "microsoft.entityframeworkcore.dynamiclinq/6.2.19",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net6.0/Microsoft.EntityFrameworkCore.DynamicLinq.dll",
-        "lib/net6.0/Microsoft.EntityFrameworkCore.DynamicLinq.pdb",
-        "lib/net6.0/Microsoft.EntityFrameworkCore.DynamicLinq.xml",
-        "microsoft.entityframeworkcore.dynamiclinq.6.2.19.nupkg.sha512",
-        "microsoft.entityframeworkcore.dynamiclinq.nuspec"
       ]
     },
     "Microsoft.EntityFrameworkCore.Relational/6.0.28": {
@@ -856,54 +688,6 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "System.Linq.Dynamic.Core/1.2.19": {
-      "sha512": "R9Iv6uDZQLDecHhBANawccBzm5H6lHTKL65zPfulHBBpeT7NktzLcxA0MfffWsTjCzSo106Vy5QtkwXnlfekJQ==",
-      "type": "package",
-      "path": "system.linq.dynamic.core/1.2.19",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net35/System.Linq.Dynamic.Core.dll",
-        "lib/net35/System.Linq.Dynamic.Core.pdb",
-        "lib/net35/System.Linq.Dynamic.Core.xml",
-        "lib/net40/System.Linq.Dynamic.Core.dll",
-        "lib/net40/System.Linq.Dynamic.Core.pdb",
-        "lib/net40/System.Linq.Dynamic.Core.xml",
-        "lib/net45/System.Linq.Dynamic.Core.dll",
-        "lib/net45/System.Linq.Dynamic.Core.pdb",
-        "lib/net45/System.Linq.Dynamic.Core.xml",
-        "lib/net452/System.Linq.Dynamic.Core.dll",
-        "lib/net452/System.Linq.Dynamic.Core.pdb",
-        "lib/net452/System.Linq.Dynamic.Core.xml",
-        "lib/net46/System.Linq.Dynamic.Core.dll",
-        "lib/net46/System.Linq.Dynamic.Core.pdb",
-        "lib/net46/System.Linq.Dynamic.Core.xml",
-        "lib/net5.0/System.Linq.Dynamic.Core.dll",
-        "lib/net5.0/System.Linq.Dynamic.Core.pdb",
-        "lib/net5.0/System.Linq.Dynamic.Core.xml",
-        "lib/net6.0/System.Linq.Dynamic.Core.dll",
-        "lib/net6.0/System.Linq.Dynamic.Core.pdb",
-        "lib/net6.0/System.Linq.Dynamic.Core.xml",
-        "lib/netcoreapp2.1/System.Linq.Dynamic.Core.dll",
-        "lib/netcoreapp2.1/System.Linq.Dynamic.Core.pdb",
-        "lib/netcoreapp2.1/System.Linq.Dynamic.Core.xml",
-        "lib/netstandard1.3/System.Linq.Dynamic.Core.dll",
-        "lib/netstandard1.3/System.Linq.Dynamic.Core.pdb",
-        "lib/netstandard1.3/System.Linq.Dynamic.Core.xml",
-        "lib/netstandard2.0/System.Linq.Dynamic.Core.dll",
-        "lib/netstandard2.0/System.Linq.Dynamic.Core.pdb",
-        "lib/netstandard2.0/System.Linq.Dynamic.Core.xml",
-        "lib/netstandard2.1/System.Linq.Dynamic.Core.dll",
-        "lib/netstandard2.1/System.Linq.Dynamic.Core.pdb",
-        "lib/netstandard2.1/System.Linq.Dynamic.Core.xml",
-        "lib/uap10.0.10240/System.Linq.Dynamic.Core.dll",
-        "lib/uap10.0.10240/System.Linq.Dynamic.Core.pdb",
-        "lib/uap10.0.10240/System.Linq.Dynamic.Core.pri",
-        "lib/uap10.0.10240/System.Linq.Dynamic.Core.xml",
-        "system.linq.dynamic.core.1.2.19.nupkg.sha512",
-        "system.linq.dynamic.core.nuspec"
-      ]
-    },
     "System.Runtime.CompilerServices.Unsafe/6.0.0": {
       "sha512": "/iUeP3tq1S0XdNNoMz5C9twLSrM/TH+qElHkXWaPvuNOt+99G75NrV0OS2EqHx5wMN7popYjpc8oTjC1y16DLg==",
       "type": "package",
@@ -928,16 +712,10 @@
         "system.runtime.compilerservices.unsafe.nuspec",
         "useSharedDesignerContext.txt"
       ]
-    },
-    "Dummy.Core/1.0.0": {
-      "type": "project",
-      "path": "../../../SP-2573Prototype/Dummy.Api/Dummy.Core/Dummy.Core.csproj",
-      "msbuildProject": "../../../SP-2573Prototype/Dummy.Api/Dummy.Core/Dummy.Core.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Dummy.Core >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 6.0.28",
       "Pomelo.EntityFrameworkCore.MySql >= 6.0.3"
     ]
@@ -968,11 +746,7 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {
-            "C:\\Proyectos\\Maipu\\Timm30\\Spike2753\\SP-2573Prototype\\Dummy.Api\\Dummy.Core\\Dummy.Core.csproj": {
-              "projectPath": "C:\\Proyectos\\Maipu\\Timm30\\Spike2753\\SP-2573Prototype\\Dummy.Api\\Dummy.Core\\Dummy.Core.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {
